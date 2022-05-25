@@ -12,7 +12,7 @@ customElements.define("view-one", One);
 
 class Two extends LitElement {
   render() {
-    return html`<h1>World</h1>`;
+    return html`<h1>World</h1><a href="/">Back</a>`;
   }
 }
 
