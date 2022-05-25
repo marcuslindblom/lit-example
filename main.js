@@ -19,8 +19,15 @@ class About extends LitElement {
 customElements.define('about-index', About);
 
 class Contact extends LitElement {
+  static properties = {
+    name: { type: String }
+  };  
+  constructor() {
+    super();
+    this.name = {};  
+  }  
   render() {
-    return html`<h1>Contact</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
+    return html`<h1>Contact ${this.name}</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
 }
 
@@ -34,13 +41,20 @@ class App extends LitElement {
     },
     {
       path: '/about',
-      render: () => html`<about-index></about-index>`,      
+      render: () => html`<about-index .name=${this.data.name}></about-index>`,      
     },
     {
       path: '/contact',
       render: () => html`<contact-index></contact-index>`,      
     }    
   ]);
+  static properties = {
+    data: { type: Object }
+  };
+  constructor() {
+    super();
+    this.data = { name: 'Marcus' };
+  }
   render() {
     return html`${this.router.outlet()}`;
   }
