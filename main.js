@@ -21,7 +21,7 @@ customElements.define('view-two', Two);
 class App extends LitElement {
   router = new Router(this, [
     {
-      path: '/*',
+      path: '/',
       render: () => html`<view-one></view-one>`,
     },
     {
