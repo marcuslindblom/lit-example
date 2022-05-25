@@ -41,7 +41,7 @@ class App extends LitElement {
     },
     {
       path: '/about',
-      render: () => html`<about-index .name=${this.data.name}></about-index>`,      
+      render: () => html`<about-index .name=${this.name}></about-index>`,      
     },
     {
       path: '/contact',
@@ -49,11 +49,11 @@ class App extends LitElement {
     }    
   ]);
   static properties = {
-    data: { type: Object }
+    name: { type: String }
   };
   constructor() {
     super();
-    this.data = { name: 'Marcus' };
+    this.name = 'Marcus';
   }
   render() {
     return html`${this.router.outlet()}`;
