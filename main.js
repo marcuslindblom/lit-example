@@ -2,36 +2,48 @@ import { LitElement, html } from "https://cdn.skypack.dev/lit@2.2.4";
 import { Router } from "https://cdn.skypack.dev/@lit-labs/router@0.0.2";
 
 
-class One extends LitElement {
+class Home extends LitElement {
   render() {
-    return html`<h1>Hello</h1><a href="/world">World</a>`;
+    return html`<h1>Hello</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
 }
 
-customElements.define("view-one", One);
+customElements.define("home-index", Home);
 
-class Two extends LitElement {
+class About extends LitElement {
   render() {
-    return html`<h1>World</h1><a href="/">Back</a>`;
+    return html`<h1>About</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
 }
 
-customElements.define('view-two', Two);
+customElements.define('about-index', About);
+
+class Contact extends LitElement {
+  render() {
+    return html`<h1>Contact</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
+  }
+}
+
+customElements.define('contact-index', Contact);
 
 class App extends LitElement {
   router = new Router(this, [
     {
       path: '/',
-      render: () => html`<view-one></view-one>`,
+      render: () => html`<home-index></home-index>`,
     },
     {
-      path: '/world',
-      render: () => html`<view-two></view-two>`,      
-    }
+      path: '/about',
+      render: () => html`<about-index></about-index>`,      
+    },
+    {
+      path: '/contact',
+      render: () => html`<contact-index></contact-index>`,      
+    }    
   ]);
   render() {
     return html`${this.router.outlet()}`;
   }
 }
 
-customElements.define('view-app', App);
+customElements.define('my-app', App);
