@@ -12,7 +12,7 @@ customElements.define("home-index", Home);
 
 class About extends LitElement {
   render() {
-    return html`<h1>About</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
+    return html`<h1>About ${this.name}</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
 }
 
@@ -24,10 +24,10 @@ class Contact extends LitElement {
   };  
   constructor() {
     super();
-    this.name = {};  
+    this.name = null;
   }  
   render() {
-    return html`<h1>Contact ${this.name}</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
+    return html`<h1>Contact</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
 }
 
