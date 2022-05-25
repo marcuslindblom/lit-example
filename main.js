@@ -6,6 +6,9 @@ class Home extends LitElement {
   render() {
     return html`<h1>Hello</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
+  createRenderRoot() {
+    return this;
+  }
 }
 
 customElements.define("home-index", Home);
@@ -14,6 +17,9 @@ class About extends LitElement {
   render() {
     return html`<h1>About ${this.name}</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
+  createRenderRoot() {
+    return this;
+  }  
 }
 
 customElements.define('about-index', About);
@@ -29,6 +35,9 @@ class Contact extends LitElement {
   render() {
     return html`<h1>Contact</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
+  createRenderRoot() {
+    return this;
+  }  
 }
 
 customElements.define('contact-index', Contact);
@@ -58,6 +67,9 @@ class App extends LitElement {
   render() {
     return html`${this.router.outlet()}`;
   }
+  createRenderRoot() {
+    return this;
+  }  
 }
 
 customElements.define('my-app', App);
