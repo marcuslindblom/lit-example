@@ -36,6 +36,20 @@ class Contact extends LitElement {
     return html`<h1>Contact</h1><a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a>`;
   }
   
+  connectedCallback() {
+    super.connectedCallback();
+    document.addEventListener('click', this.handleClose);
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('click', this.handleClose);
+    super.disconnectedCallback();
+  }  
+  
+  handleClose = (e) => {
+    console.log(this);
+  };
+  
   createRenderRoot() {
     return this;
   }  
