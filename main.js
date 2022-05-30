@@ -43,6 +43,7 @@ class Contact extends LitElement {
 
   disconnectedCallback() {
     document.removeEventListener('click', this.handleClose);
+    this.name = null;
     super.disconnectedCallback();
   }  
   
