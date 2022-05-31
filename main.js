@@ -49,11 +49,7 @@ class Contact extends LitElement {
   
   handleClose = (e) => {
     console.log(this);
-  };
-  
-  createRenderRoot() {
-    return this;
-  }  
+  }; 
 }
 
 customElements.define('contact-index', Contact);
